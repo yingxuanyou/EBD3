@@ -6,9 +6,9 @@ We introduce EBD3, an **E**ntropy-based **B**lock **D**iscrete **D**enoising **D
 ## Results on OpenWebText
 | Block Size | BPD | NLL | PPL | log |
 |------------|---------|---------|---------|-------|
-| 4          | 4.231   | 2.933   | 18.778  | [log](logs/bd3lm_owt_block_size4_entropy4.0_stopfalse_all.log) |
-| 8          | 4.290   | 2.973   | 19.559  | [log](logs/bd3lm_owt_block_size8_entropy4.0_stopfalse_all.log) |
-| 16         | 4.324   | 2.997   | 20.033  | [log](logs/bd3lm_owt_block_size16_entropy4.0_stopfalse_all.log) |
+| 4          | 4.231   | 2.933   | 18.778  | [log](res/bd3lm_owt_block_size4_entropy4.0_stopfalse_all.log) |
+| 8          | 4.290   | 2.973   | 19.559  | [log](res/bd3lm_owt_block_size8_entropy4.0_stopfalse_all.log) |
+| 16         | 4.324   | 2.997   | 20.033  | [log](res/bd3lm_owt_block_size16_entropy4.0_stopfalse_all.log) |
 
 <img src="exp.png" alt="comparison" width="50%">
 
