@@ -3,16 +3,6 @@
 We introduce EBD3, an **E**ntropy-based **B**lock **D**iscrete **D**enoising **D**iffusion framework for language models. EBD3 achieves state-of-the-art likelihood among diffusion-based models while supporting generation of arbitrary-length sequences. Built on BD3LM, which unifies autoregressive and diffusion modeling, EBD3 incorporates an adaptive entropy-based selection strategy at test time to reduce diffusion uncertainty and lower perplexity. This enables block-wise conditional generation and context-aware refinement of past tokens, capabilities beyond standard autoregressive approaches.
 
 
-In this repo, we provide:
-* **The EBD3 framework**
-  1. Entropy-based block discrete denoising diffusion
-  2. Block-autoregressive likelihood parameterization
-  3. Data-driven noise schedules to reduce training variance
-  4. Arbitrary-length discrete diffusion samplers
-* **Baseline implementations**
-  BD3LM model [[AR](https://arxiv.org/abs/2406.07524)]
-
-
 ## Results on OpenWebText
 | Block Size | BPD | NLL | PPL | log |
 |------------|---------|---------|---------|-------|
