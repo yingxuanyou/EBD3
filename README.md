@@ -88,53 +88,5 @@ python -u main.py \
     mode=ppl_eval > $PWD/logs/bd3lm_owt_block_size${BLOCK_SIZE}_entropy${ENTROPY_THRESHOLD}_stop${USE_ENTROPY_STOP}_all.log
 ```
 
-### Generate Arbitrary-Length Sequences
-
-To generate arbitrary-length sequences, set `mode=sample_eval`. Example scripts are provided in `scripts/var_len/var_len*.sh`. Here's an example script using BD3-LM:
-#### HuggingFace model
-```bash
-BLOCK_SIZE=4 # 4, 8, 16
-LENGTH=2048 # arbitrary; needs to be a multiple of the block size
-
-python -u main.py \
-    loader.eval_batch_size=1 \
-    model=small \
-    algo=bd3lm \
-    algo.T=5000 \
-    algo.backbone=hf_dit \
-    data=openwebtext-split \
-    model.length=$LENGTH \
-    block_size=$BLOCK_SIZE \
-    wandb=null \
-    mode=sample_eval \
-    eval.checkpoint_path=kuleshov-group/bd3lm-owt-block_size${BLOCK_SIZE} \
-    model.attn_backend=sdpa \
-    sampling.nucleus_p=0.9 \
-    sampling.kv_cache=true \
-    sampling.logdir=$PWD/sample_logs/samples_genlen_bd3lm_blocksize${BLOCK_SIZE}
-```
-
-#### Local checkpoint
-```bash
-BLOCK_SIZE=4 # 4, 8, 16
-LENGTH=2048 # arbitrary; needs to be a multiple of the block size
-
-python -u main.py \
-    loader.eval_batch_size=1 \
-    model=small \
-    algo=bd3lm \
-    algo.T=5000 \
-    data=openwebtext-split \
-    model.length=$LENGTH \
-    block_size=$BLOCK_SIZE \
-    wandb=null \
-    mode=sample_eval \
-    eval.checkpoint_path=/path/to/checkpoint/bd3lm-owt-block_size${BLOCK_SIZE} \
-    model.attn_backend=sdpa \
-    sampling.nucleus_p=0.9 \
-    sampling.kv_cache=true \
-    sampling.logdir=$PWD/sample_logs/samples_genlen_bd3lm_blocksize${BLOCK_SIZE}
-```
-
 ### Acknowledgements
 This repository was built off of [BD3-LM](https://github.com/kuleshov-group/bd3-lm), [MDLM](https://github.com/kuleshov-group/mdlm) and [SEDD](https://github.com/louaaron/Score-Entropy-Discrete-Diffusion).
